@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module circular_buffer (
     input  wire       clk,
     input  wire       rst,
@@ -22,7 +24,7 @@ module circular_buffer (
     reg [3:0] wr_ptr;
     reg [3:0] rd_ptr;
 
-    // 1. Status Flags matching your exact definitions
+    // 1. Status Flags
     assign empty = (rd_ptr == wr_ptr);
     assign full  = (rd_ptr[3] != wr_ptr[3]) && (rd_ptr[2:0] == wr_ptr[2:0]);
 
